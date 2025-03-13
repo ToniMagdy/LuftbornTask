@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Product Form</h2>
+
+<div mat-dialog-content class="form-container">
+  <form [formGroup]="productForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Enter product name" formControlName="name">
+      <mat-error *ngIf="productForm.controls['name'].hasError('required')">
+        Name is required.
+      </mat-error>
+      <mat-error *ngIf="productForm.controls['name'].hasError('minlength')">
+        Name must be at least 3 characters.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Enter description" formControlName="description">
+      <mat-error *ngIf="productForm.controls['description'].hasError('required')">
+        Description is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" placeholder="Enter price" formControlName="price">
+      <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+        Price is required.
+      </mat-error>
+      <mat-error *ngIf="productForm.controls['price'].hasError('min')">
+        Price must be at least $1.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="!productForm.valid">Save</button>
+</div>

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <span class="logo">Luftborn Task</span>
+  
+    <span class="spacer"></span>
+  
+    <ng-container *ngIf="isAuthenticated$ | async; else loginBlock">
+      <div class="user-info">
+        <img *ngIf="(user$ | async)?.picture" [src]="(user$ | async)?.picture" alt="User" />
+        <span>{{ (user$ | async)?.name }}</span>
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </ng-container>
+  
+    <ng-template #loginBlock>
+      <button mat-raised-button color="accent" (click)="login()">Login</button>
+    </ng-template>
+  </mat-toolbar>
+  

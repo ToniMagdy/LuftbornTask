@@ -1,0 +1,19 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+  }
+  
+  .home-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .home-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  

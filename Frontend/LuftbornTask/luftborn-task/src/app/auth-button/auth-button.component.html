@@ -1,0 +1,7 @@
+<button mat-button *ngIf="!(authService.isAuthenticated$ | async)" (click)="authService.login()">
+    Login
+  </button>
+  <button mat-button *ngIf="authService.isAuthenticated$ | async" (click)="authService.logout()">
+    Logout
+  </button>
+  
